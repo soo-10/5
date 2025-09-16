@@ -25,7 +25,7 @@ void AMyActor::BeginPlay()
 
 int AMyActor::Step()
 {
-	return FMath::RandRange(-1, 1);
+	return FMath::RandRange(0, 1);
 }
 
 void AMyActor::Move()
@@ -33,10 +33,11 @@ void AMyActor::Move()
 
 	int stepX = Step();
 	int stepY = Step();
-	if (FMath::Abs(X + stepX) <= 2)
+
+	if (X + stepX < 2)
 		X += stepX;
 
-	if (FMath::Abs(Y + stepY) <= 2)
+	if ((Y + stepY < 2)
 		Y += stepY;
 
 }
